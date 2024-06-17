@@ -32,22 +32,28 @@ export const StockTable = ({ stock, page, onPageChange }) => {
             dataIndex: "price",
             key: "price",
             render: (price) =>
-                price.toLocaleString("ru", {
-                    style: "currency",
-                    currency: "RUB",
-                }),
+                `${
+                    price
+                        ? price.toLocaleString("ru", {
+                              style: "currency",
+                              currency: "RUB",
+                          })
+                        : "-"
+                }`,
         },
         {
             title: "Дата создания",
             dataIndex: "createdAt",
             key: "createdAt",
             render: (date) =>
-                `${new Date(date).toLocaleDateString("ru")} ${new Date(
-                    date
-                ).toLocaleTimeString("ru", {
-                    hour: "2-digit",
-                    minute: "2-digit",
-                })}`,
+                date
+                    ? `${new Date(date).toLocaleDateString("ru")} ${new Date(
+                          date
+                      ).toLocaleTimeString("ru", {
+                          hour: "2-digit",
+                          minute: "2-digit",
+                      })}`
+                    : "-",
         },
     ];
 

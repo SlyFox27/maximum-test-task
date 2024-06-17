@@ -17,6 +17,7 @@ const App = () => {
             .then((data) => {
                 const validBrands = data.filter((brand) => brand);
                 setBrands(validBrands);
+                setSelectedBrand(validBrands[0]._id);
             });
     }, []);
 
