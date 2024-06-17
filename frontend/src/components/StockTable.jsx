@@ -8,14 +8,19 @@ export const StockTable = ({ stock, page, onPageChange }) => {
             title: "Марка/модель",
             dataIndex: "mark",
             key: "mark",
-            render: (text, record) => `${record.mark} ${record.model}`,
+            render: (text, record) =>
+                `${record.mark ? record.mark : ""} ${
+                    record.model ? record.model : ""
+                }`,
         },
         {
             title: "Модификация",
             dataIndex: "engine",
             key: "engine",
             render: (engine) =>
-                `${engine.power}HP ${engine.volume}L ${engine.transmission}`,
+                `${engine.power ? engine.power : ""}HP ${
+                    engine.volume ? engine.volume : ""
+                }L ${engine.transmission ? engine.transmission : ""}`,
         },
         {
             title: "Комплектация",
